@@ -1,0 +1,10 @@
+Node  = JavaScript lado del servidor.
+
+Instalacion NodeJS
+	https://nodejs.org/dist/latest-v8.x/
+Instalar Visual Studio Code
+	https://code.visualstudio.com/docs/?dv=win
+Instalar GitKraken
+	https://www.gitkraken.com/download/windows64
+
+
