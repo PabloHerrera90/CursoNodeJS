@@ -1,0 +1,23 @@
+{
+  "name": "cursonode",
+  "version": "1.0.0",
+  "description": "curso node",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloHerrera90/CursoNodeJS.git"
+  },
+  "author": "Pablo Herrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PabloHerrera90/CursoNodeJS/issues"
+  },
+  "homepage": "https://github.com/PabloHerrera90/CursoNodeJS#readme",
+  "dependencies": {
+    "hapi": "^17.7.0"
+  }
+}
