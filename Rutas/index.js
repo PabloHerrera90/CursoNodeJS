@@ -5,12 +5,42 @@ module.exports = [
     {
         method: 'POST',
         path: '/carro',
+        config:{
+            pre:[
+                {method: Handlers.preHandler.preValidar , assign: 'preTokenVal'}
+            ]
+        },
         handler:Handlers.carroHandler.agregarCarrosAsyncAwait
     },
     {
         method: 'GET',
         path: '/carro',
+        config:{
+            pre:[
+                {method: Handlers.preHandler.preValidar , assign: 'preTokenVal'}
+            ]
+        },
         handler:Handlers.carroHandler.listarCarrosAsyncAwait
+    },
+    {
+        method: 'PUT',
+        path: '/carro/{index}',
+        config:{
+            pre:[
+                {method: Handlers.preHandler.preValidar , assign: 'preTokenVal'}
+            ]
+        },
+        handler:Handlers.carroHandler.ActualizarCarrosAsyncAwait
+    },
+    {
+        method: 'DELETE',
+        path: '/carro/{index}',
+        config:{
+            pre:[
+                {method: Handlers.preHandler.preValidar , assign: 'preTokenVal'}
+            ]
+        },
+        handler:Handlers.carroHandler.DeleteCarrosAsyncAwait
     },
     {
         method: 'GET',

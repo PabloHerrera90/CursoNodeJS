@@ -30,6 +30,11 @@ module.exports.agregarCarrosPromise = (req, h)=>{
 
 module.exports.agregarCarrosAsyncAwait = async (req, h)=>{
     try {
+        const {preTokenVal} = req.pre;
+        if (preTokenVal === -1){
+            return h.response({error: 'no tiene token'});
+        }
+
         const carroAgregado = await Carro.create(req.payload.data);
         console.log('Async/Wait', carroAgregado);
         console.log(await fAsync());
@@ -41,6 +46,11 @@ module.exports.agregarCarrosAsyncAwait = async (req, h)=>{
 
 module.exports.listarCarrosAsyncAwait = async (req, h)=>{
     try {
+        const {preTokenVal} = req.pre;
+        if (preTokenVal === -1){
+            return h.response({error: 'no tiene token'});
+        }
+
         if(!req.query.id){
             return await Carro.find();
         }
@@ -54,6 +64,38 @@ module.exports.buscarCarrosAsyncAwait = async (req, h)=>{
     try {
         const carro = await Carro.findById({id: req.paramas.id});
         return h.response(carro);
+    } catch (error) {
+        return h.response(error);
+    }   
+}
+
+module.exports.ActualizarCarrosAsyncAwait = async (req, h)=>{
+    try {
+        const {preTokenVal} = req.pre;
+        if (preTokenVal === -1){
+            return h.response({error: 'no tiene token'});
+        }
+        
+        const carroActualizado = await Carro.findByIdAndUpdate(req.params.index,
+            req.payload.data)
+            
+        return h.response(carroActualizado);
+
+    } catch (error) {
+        return h.response(error);
+    }   
+}
+
+module.exports.DeleteCarrosAsyncAwait = async (req, h)=>{
+    try {
+        const {preTokenVal} = req.pre;
+        if (preTokenVal === -1){
+            return h.response({error: 'no tiene token'});
+        }
+
+        const carroDelete = await Carro.findByIdAndDelete (req.params.index,
+            req.payload.data)
+        return h.response(carroDelete);
     } catch (error) {
         return h.response(error);
     }   

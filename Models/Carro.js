@@ -4,7 +4,7 @@ const Schema = Mongoose.Schema;
 
 const Carros = new Schema({
     marca: String,
-    modelo: Number,
+    modelo: String,
     color: String,
     anio: Number,
     puertas: Number,
