@@ -1,19 +1,20 @@
+require('dotenv').config();
 const Hapi = require('hapi');
-const Ruta = require('./Rutas');
+const Routes = require('./Rutas');
+const db = require('./Config/database').db;
 
 const server = Hapi.Server({
     host: 'localhost',
     port: 3000
 });
 
-
-server.route(Ruta);
+server.route(Routes);
 
 async function start(){
-    try{
+    try {
         await server.start();
-    } catch (error){
-        console.log(error);
+    } catch (err) {
+        console.log(err);
         process.exit(1);
     }
     console.log('Server running at:', server.info.uri);
