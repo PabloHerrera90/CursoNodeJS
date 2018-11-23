@@ -4,12 +4,12 @@ const Schema = Mongoose.Schema;
 
 const Carros = new Schema({
     marca: String,
-    modelo: String,
+    modelo: Number,
     color: String,
     anio: Number,
     puertas: Number,
     agencia: Boolean,
-    Asientos: Number    
+    asientos: Number 
 });
 
 module.exports = Mongoose.model('Carro', Carros);
