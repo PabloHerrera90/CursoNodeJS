@@ -8,6 +8,16 @@ const server = Hapi.Server({
     port: 3000
 });
 
+server.ext('onPreResponse', (req,h) =>{
+    if(request.response != null && request.response.header != null){
+        request.response.header('Access-Control-Allow-Origein','*');
+        request.response.header('Access-Control-Allow-Headers','Content-Type,Token');
+        request.response.header('Access-Control-Allow-Methods','GET,PUT,POST,DELETE');
+        console.log(require.headers);
+    }
+    return h.continue;
+});
+
 server.route(Routes);
 
 async function start(){

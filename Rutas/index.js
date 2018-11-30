@@ -43,11 +43,21 @@ module.exports = [
         handler:Handlers.carroHandler.DeleteCarrosAsyncAwait
     },
     {
-        method: 'GET',
+        method: 'POST',
         path: '/lista/{id}',
         handler: (req, h)=>{
             return {data: lista[req.params.id]};
         }
+    },
+    {
+        method: 'POST',
+        path: '/login',
+        handler: Handlers.usuarioHandler.login
+    },
+    {
+        method: 'POST',
+        path: '/usuario',
+        handler: Handlers.usuarioHandler.addUsuario
     },
     {
         method: 'GET',
